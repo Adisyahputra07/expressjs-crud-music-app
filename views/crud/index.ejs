@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include("../components/bootstrap") %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include("../components/navbar") %>
+    <div class="container-fluid">
+      <div class="card-body">
+        <% if (data.length) { %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Number</th>
+              <th scope="col">Name</th>
+              <th scope="col">Judul</th>
+              <th scope="col">Jumlah</th>
+              <th width="200px">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% for( let i = 0; i < data.length; i++ ) { %>
+            <tr>
+              <th scope="row"><%= (i+1) %></th>
+              <td><%= data[i].name %></td>
+              <td><%= data[i].judul %></td>
+              <td><%= data[i].jumlah %></td>
+              <td>
+                <a class="btn btn-success edit" href="/edit/<%= data[i].id %>"> Edit </a>
+                <a class="btn btn-danger delete" onclick="return alert('Are You Sure ?')" href="/delete/<%= data[i].id %>"> Delete </a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <% } %> <% if (!data.length) { %>
+        <p class="text-center">Data Crud is Not Found</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

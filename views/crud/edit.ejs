@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <%- include("../components/bootstrap.ejs")%>
+  </head>
+  <body>
+    <%- include("../components/navbar.ejs") %>
+    <h2 class="text-center">Edit</h2>
+    <div class="container">
+      <form action="/proses-edit/<%= id %>" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label"> Name</label>
+          <input type="hidden" class="form-control" name="id" id="name" value="<%= id %> " />
+          <input type="text" class="form-control" name="name" id="name" value="<%= name  %> " />
+        </div>
+        <div class="mb-3">
+          <label for="judul" class="form-label">Judul</label>
+          <input type="text" class="form-control" name="judul" id="judul" value="<%= judul  %>" />
+        </div>
+        <div class="mb-3">
+          <label for="jumlah" class="form-label">Jumlah</label>
+          <input type="number" class="form-control" name="jumlah" id="jumlah" value="<%= jumlah   %>" />
+        </div>
+        <button type="submit" class="btn btn-dark d-flex mx-auto">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
